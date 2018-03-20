@@ -1,0 +1,59 @@
+package ejer1;
+public class prueba2 {
+
+public int[] dividir(int array[]){
+    int i,j,k;
+    if(array.length>1){
+        int izq= array.length/2;
+        int der=array.length-izq;
+        int aizq[]= new int[izq];
+        int ader[]= new int[der];
+        for(i=0;i<izq;i++){
+            aizq[i]=array[i];      
+          } 
+        for(i=izq;i<izq+der;i++){
+            ader[i-izq]=array[i];
+          }
+        aizq=dividir(aizq);
+        ader=dividir(ader);
+        ordenar(aizq,ader,array);
+        
+    }
+    return array;
+}   
+
+public void ordenar(int aizq[], int ader[],int array[]){
+        int i=0,j=0,k=0;
+        while(aizq.length!=j && ader.length!=k){
+            if(aizq[j]<ader[k]){
+                array[i]=ader[k];
+                i++;
+                k++;
+            }else{
+                array[i]=aizq[j];
+                i++;
+                j++;
+            }
+        }
+        unir(array,aizq,ader,i,j,k);
+}
+public void unir(int array[],int[]aizq,int ader[],int i,int j,int k){
+    while(aizq.length!=j){
+            array[i]=aizq[j];
+            i++;
+            j++;
+        }
+        while(ader.length!=k){
+            array[i]=ader[k];
+            i++;
+            k++;
+        }
+
+}
+
+public void escribir(int array[]){
+    for(int i=0; i<array.length;i++){
+    System.out.println(array[i]);
+    }
+}
+}
