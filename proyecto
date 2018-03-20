@@ -1,0 +1,50 @@
+package ejer1;
+public class Ejer1 {
+ public static void main(String[] args) {
+     
+ burbuja h = new burbuja();
+ heapsort x = new heapsort();
+ prueba2 w = new prueba2(); 
+ int arreglo[]= llenar();
+    
+//metodo de ordenamiento heapsort 
+long t_s, t_e;
+x.llenar(arreglo);
+t_s = System.nanoTime();
+    x.quitar();
+t_e = System.nanoTime();
+System.out.println("Heapsort Toma "+ ( t_e - t_s ) +" nanosegundos");
+ x.escribir();
+ System.out.println("");
+
+//Metodo de ordenamiento burbuja 
+long time_start, time_end;
+time_start = System.nanoTime();
+h.burbuja(arreglo);
+time_end = System.nanoTime();
+System.out.println("Burbuja toma "+ ( time_end - time_start ) +" nanosegundos");
+
+//Metodo de ordenamiento Mergesort
+long t_i, t_f;
+t_i = System.nanoTime();
+arreglo=w.dividir(arreglo);
+t_f = System.nanoTime();
+System.out.println("Mergesort toma "+ ( t_f - t_i ) +" nanosegundos");
+w.escribir(arreglo);
+System.out.println("");
+ 
+}
+// creacion del arreglo   
+public static int[] llenar(){
+    int a[]= new int[100];
+    for(int i=0; i<a.length; i++){     
+      a[i]=(int) (Math.random() * 99); 
+   }
+   return a;
+}
+// tamaño del arreglo
+public int tam(){
+    int a[]= llenar();
+   return a.length;
+}
+}
