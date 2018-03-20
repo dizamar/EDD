@@ -1,0 +1,104 @@
+
+package ejer1;
+public class heapsort {
+    Ejer1 t= new Ejer1();
+    public int array[]= new int[t.tam()];
+    int ultimo=0;
+    int ap=0;
+    
+ public int[] llenar(int a[]){
+   for(int i=0; i<a.length; i++){     
+      array[i]=a[i]; 
+      ultimo++;
+   }
+   return array;
+} 
+private int padre(int index){
+       return (index-1)/2;
+   } 
+   
+   private int hijoizq(int index){
+       return 2*index+1;
+   }
+   
+    private int hijoder(int index){
+       return 2*index+2;
+   }
+   
+   public void escribir(){
+    for(int j=0; j<array.length; j++){     
+         System.out.println(array[j]);
+   }
+} 
+   
+   public int hijomenor(int index){
+    if(array[hijoizq(index)] > array[hijoder(index)]){
+       return hijoder(index);
+        
+    }
+    else{
+        return hijoizq(index);
+        
+    }
+       
+}
+   
+public int numhijos(int index){
+    if (hijoder(index)<= ultimo-1){
+        return 2;
+    } 
+    else{
+        if(hijoizq(index)<= ultimo-1){
+            return 1;
+        }
+    }
+        return 0;
+}
+
+public void hundir(int index){
+    int temp = 0;
+    if(numhijos(index)==2){
+       if(array[index]>array[hijomenor(index)]){
+           temp=array[index];  
+           array[index]=array[hijomenor(index)];
+           array[hijomenor(index)]=temp;
+       } }
+       else{
+           if(numhijos(index)==1){
+              temp=array[index];  
+              array[index]=array[hijoizq(index)];
+              array[hijoizq(index)]=temp; 
+           }
+       }  
+    
+}
+public void flotar(int index){
+    int temp = 0;
+    if(index > 0){
+    if(array[index]<array[padre(index)]){
+      temp=array[padre(index)];  
+      array[padre(index)]=array[index];
+      array[index]=temp;
+    }
+    }
+}
+
+public void isok(int arreglo[]){
+ for(int i=0;i<ultimo;i++){
+    if(numhijos(i)==2){
+       if(array[i]>array[hijomenor(i)]){
+           hundir(i);
+            
+       } }
+       else{
+           if(numhijos(i)==1){
+              if(array[i]<array[hijoizq(i)]){
+                 hundir(i); 
+                
+              }
+           }
+        }
+    
+    }
+ 
+}
