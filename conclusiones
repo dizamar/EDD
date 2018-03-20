@@ -1,0 +1,8 @@
+Conclusiones:
+Las siguientes conclusiones son basadas en el uso de tres diferentes métodos de ordenamiento, heapsort, mergesort y burbuja y su medición de tiempo en ejecución.
+
+	El algoritmo de burbuja muestra mayor tardanza en el ordenamiento, es sencillo podría ser útil en ordenamiento o búsquedas muy pequeñas ya que muestra un comportamiento de n*n.
+
+	El algoritmo de mergesort es el que presenta un mejor rendimiento entre los 3, utiliza las ventajas de la recursividad para su proceso, es ideal para realizar ordenamientos o búsquedas de grandes cantidades de elementos.
+
+	El algoritmo heapsort representaría el término medio entre los algoritmos, su representación a semejanza de un árbol binario, es conveniente y tiene una buena velocidad de ordenamiento. Comportamiento de 2nlog n.
